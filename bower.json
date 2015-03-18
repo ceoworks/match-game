@@ -1,0 +1,16 @@
+{
+  "name": "dr-test",
+  "version": "0.0.0",
+  "authors": [
+    "= <stas_slesarev@mail.ru>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "directory": "./project/static/bower_components"
+}
