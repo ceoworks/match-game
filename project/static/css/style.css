@@ -7,15 +7,15 @@ body {
   height   : 344px;
   border   : 10px dashed rgba(0, 0, 0, 0.5);
   overflow : scroll;
-  margin   : -200px 0 0 -450px;
-  padding: 20px 0 0 20px;
+  margin   : -172px 0 0 -430px;
+  padding  : 20px 0 0 20px;
   position : absolute;
   left     : 50%;
   top      : 50%;
 }
 .number {
   background     : rgba(143, 244, 255, 0.5);
-  border         : 1px solid #000000;
+  border         : 1px solid black;
   border-radius  : 5px;
   display        : inline-block;
   width          : 150px;
@@ -27,5 +27,23 @@ body {
   line-height    : 150px;
 }
 .number:hover {
-  background    : rgba(232, 255, 148, 0.5);
+  background: rgba(232, 255, 148, 0.5);
+}
+.success {
+  background: green;
+}
+.failure {
+  background: red;
+}
+aside {
+  width   : 160px;
+  border  : 5px solid black;
+  padding : 10px;
+  float   :right;
+  color   : white;
+}
+aside button {
+  display: inline;
+  color: black;
+  text-align: center;
 }

@@ -1,5 +1,15 @@
 <div ng-controller="IndexController">
+  
   <div class="container">
-    <div ng-class="number" ng-repeat="num in numbers track by $index">{{num.value}}</div>
+    <div ng-repeat="num in data.numbers track by $index" 
+         ng-class="{'success': num.match === 'success', 'failure': num.match === 'failure'}"
+         ng-click="(!status.show) && checkMatches($index)"
+         class="number">
+    {{num.value}}
+    </div>
   </div>
+  <aside>
+    <h1 ng-show="status.show">{{status.message}}</h1>
+    <button type="button" ng-click="refresh()">Refresh</button>
+  </aside>
 </div>

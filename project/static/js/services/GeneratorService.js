@@ -2,28 +2,54 @@
 
 var generatorService = angular.module('GeneratorService', []);
 
-generatorService.service('Gen', function () {
+generatorService.service('Gen', function() {
 
-  var matchesLength = 10,
-  duplicatesNumber  = 2,
-  numberDimension   = 10,
-  originsNumber     = matchesLength - duplicatesNumber;
+  var matchesNumber = 10,
+    capacityNumber = 10,
+    duplicatesNumber = 2,
+    uniqueNumbers = capacityNumber - duplicatesNumber*2;
 
+  this.generate = function() {
+    var numbers = [],
+      duplicates = [],
+      randomArray = [],
+      random = this.randomise(capacityNumber);
 
-  this.randomise = function () {
-    var numbers   = [],
-    duplicates    = [];
-    
-    for (var i = 0; i < originsNumber; i++) {
-      numbers[i] = { value: Math.floor( Math.random() * numberDimension ), match: undefined };
+    //generating unique numbers
+    for (var i = 0; i < uniqueNumbers; i++) {
+      while (randomArray.indexOf(random) > -1) {
+        random = this.randomise(capacityNumber);
+      }
+
+      randomArray[i] = random;
+      numbers[i] = {
+        value: random,
+        match: undefined
+      };
     }
 
+    // creating of duplicates
     for (var i = 0; i < duplicatesNumber; i++) {
-      var copy = numbers[ Math.floor( Math.random() * originsNumber ) ];
-      copy.match = true;
-      duplicates.push(copy);
+      while (randomArray.indexOf(random) > -1) {
+        random = this.randomise(capacityNumber);
+      }
+      randomArray.push(random);
+      
+      var duplicate = { 
+        value: random,
+        match: true
+      };
+      
+      numbers.splice(this.randomise(numbers.length), 0, duplicate);
+      numbers.splice(this.randomise(numbers.length), 0, duplicate);
     }
-    
-    return numbers.concat(duplicates);
+
+    return {
+      numbers: numbers,
+      duplicatesNumber: duplicatesNumber
+    };
+  };
+  this.randomise = function(number) {
+    return Math.floor(Math.random() * number);
   };
 });
