@@ -2,7 +2,8 @@
 
 var matchApp = angular.module('matchApp', [
   'ngRoute',
-  'IndexController'
+  'IndexController',
+  'GeneratorService'
 ]);
 
 matchApp.config(['$routeProvider', function($routeProvider) {

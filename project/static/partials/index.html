@@ -1,5 +1,5 @@
 <div ng-controller="IndexController">
   <div class="container">
-    <div class="number" ng-repeat="num in numbers track by $index">{{num}}</div>
+    <div ng-class="number" ng-repeat="num in numbers track by $index">{{num.value}}</div>
   </div>
 </div>
