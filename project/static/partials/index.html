@@ -2,14 +2,15 @@
   
   <div class="container">
     <div ng-repeat="num in data.numbers track by $index" 
-         ng-class="{'success': num.match === 'success', 'failure': num.match === 'failure'}"
-         ng-click="(!status.show) && checkMatches($index)"
-         class="number">
+         ng-class="{'success': num.status === 'success', 'failure': num.status === 'failure'}"
+         ng-click="(data.duplicatesNumber > 0) && checkMatches($index)"
+         name="{{num.match}}"
+         class="number {{$index}}">
     {{num.value}}
     </div>
   </div>
   <aside>
-    <h1 ng-show="status.show">{{status.message}}</h1>
+    <h1 name="alert">{{status.message}}</h1>
     <button type="button" ng-click="refresh()">Refresh</button>
   </aside>
 </div>
