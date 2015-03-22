@@ -8,15 +8,17 @@ indexController.controller('IndexController', ['$scope', 'Gen',
     init();
 
     $scope.checkMatches = function(index) {
-      if ($scope.data.numbers[index].match) {
-        // player finds match
-        $scope.data.numbers[index].status = 'success';
-        $scope.data.duplicatesNumber--;
+      if ($scope.data.duplicatesNumber > 0) {
 
-      } else {
-        // player loses
-        $scope.data.numbers[index].status = 'failure';
-        $scope.data.duplicatesNumber = -1;
+        if ($scope.data.numbers[index].match) {
+          // player finds match
+          $scope.data.numbers[index].status = 'success';
+          $scope.data.duplicatesNumber--;
+        } else {
+          // player loses
+          $scope.data.numbers[index].status = 'failure';
+          $scope.data.duplicatesNumber = -1;
+        }
       }
 
       $scope.checkStatus();
