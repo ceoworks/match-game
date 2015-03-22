@@ -1,11 +1,10 @@
 'use strict';
 
-var matchApp = angular.module('matchApp', [
+var app = angular.module('matchApp', [
   'ngRoute',
-  'GeneratorService'
 ]);
 
-matchApp.config(['$routeProvider', function($routeProvider) {
+app.config(['$routeProvider', function($routeProvider) {
   
   $routeProvider.when('/game', {
     templateUrl: 'static/partials/index.html',

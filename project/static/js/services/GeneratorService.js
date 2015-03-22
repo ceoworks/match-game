@@ -1,8 +1,8 @@
 'use strict';
 
-var generatorService = angular.module('GeneratorService', []);
+var app = angular.module('matchApp');
 
-generatorService.service('Gen', function() {
+app.service('Gen', function() {
 
   var matchesNumber = 10,
     capacityNumber = 10,
@@ -34,7 +34,7 @@ generatorService.service('Gen', function() {
         random = this.randomise(capacityNumber);
       }
       randomArray.push(random);
-      
+
       var duplicate = { 
         value: random,
         match: true
