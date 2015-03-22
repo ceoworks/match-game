@@ -46,7 +46,34 @@ app.service('Gen', function() {
 
     return {
       numbers: numbers,
-      duplicatesNumber: duplicatesNumber
+      status: 'Game is going..',
+      duplicatesNumber: duplicatesNumber,
+      checkMatches: function(index) {
+        if (this.duplicatesNumber > 0) {
+
+          if (this.numbers[index].match) {
+            // player finds match
+            this.numbers[index].class = 'success';
+            this.duplicatesNumber--;
+          } else {
+            // player loses
+            this.numbers[index].class = 'failure';
+            this.duplicatesNumber = -1;
+          }
+        }
+
+        this.checkStatus();
+      },
+      checkStatus: function() {
+        switch (this.duplicatesNumber) {
+          case 0:
+            this.status = 'Victory!';
+            break;
+          case -1:
+            this.status = 'Failure = (';
+            break;
+        }
+      }
     };
   };
   this.randomise = function(number) {
