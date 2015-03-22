@@ -1,8 +1,8 @@
 'use strict';
 
-var indexController = angular.module('IndexController', []);
+var app = angular.module('matchApp');
 
-indexController.controller('IndexController', ['$scope', 'Gen',
+app.controller('GameController', ['$scope', 'Gen',
   function($scope, Gen) {
 
     init();
