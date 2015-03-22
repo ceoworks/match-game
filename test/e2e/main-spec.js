@@ -9,6 +9,12 @@ describe('Match Game', function () {
     browser.get('http://127.0.0.1:5000/#/game');
   });
 
+  it('should have 10 numbers after initial load', function(){
+    element.all(by.className('number')).count().then(function (count) {
+      expect(count).toEqual(10);
+    });
+  });
+
   it('should set .success class after click on Match number', function () {
     var match = element.all(by.name('true')).first().click();
     expect(hasClass(match, 'success')).toBeTruthy();
@@ -19,7 +25,7 @@ describe('Match Game', function () {
     expect(hasClass(match, 'failure')).toBeTruthy();
   });
 
-  it('should set "Victory!" text to h1 after all matches were clicked', function () {
+  it('should set "Victory!" text to h1[name="alert"] after all matches were clicked', function () {
     var matchesClicked = element.all(by.name('true')).each(function (match) {
       match.click();
     });
