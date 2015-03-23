@@ -19,14 +19,22 @@ describe('Match Game', function () {
     });
   });
 
+  it('should delete both matches after every click on Match number', function () {
+    element.all(by.name('true')).first().click().then(function () {
+      expect(element.all(by.className('number')).count()).toEqual(numberCount-2);
+    });
+  });
+
   it('should set .failure class after click on Non-match number', function () {
-    var match = element(by.name('')).click();
+    var match = element.all(by.name('')).first().click();
     expect(hasClass(match, 'failure')).toBeTruthy();
   });
 
   it('should set "' + stateSuccessMessage + '" text to h3[name="alert"] after all matches were clicked', function () {
     var matchesClicked = element.all(by.name('true')).each(function (match) {
-      match.click();
+      if(match) {
+        match.click(); 
+      }
     });
 
     matchesClicked.then(function () {
