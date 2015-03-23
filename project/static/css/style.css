@@ -35,6 +35,10 @@ body {
 aside {
   width   : 160px;
   padding : 10px;
-  float   : right;
   color   : white;
+  margin  : 0 auto 0 auto;
+}
+
+h3[name="alert"] {
+  text-align: center;
 }
