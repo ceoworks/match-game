@@ -48,14 +48,13 @@ app.service('Gen', function() {
       numbers: numbers,
       status: '',
       duplicatesNumber: duplicatesNumber,
-      checkMatches: function(firstMatchValue, firstMatchIndex) {
+      checkMatches: function(firstMatchIndex) {
         if (this.duplicatesNumber > 0) {
 
           if (this.numbers[firstMatchIndex].match) {
             // player finds match
             var secondMatch = this.numbers.splice(firstMatchIndex, 1)[0];
-            var secondMatchIndex = this.numbers.indexOf(secondMatch);
-            this.numbers.splice(secondMatchIndex, 1);
+            secondMatch.match = undefined;
             this.duplicatesNumber--;
           } else {
             // player loses

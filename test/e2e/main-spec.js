@@ -19,9 +19,9 @@ describe('Match Game', function () {
     });
   });
 
-  it('should delete both matches after every click on Match number', function () {
+  it('should delete only clicked duplicate itself', function () {
     element.all(by.name('true')).first().click().then(function () {
-      expect(element.all(by.className('number')).count()).toEqual(numberCount-2);
+      expect(element.all(by.className('number')).count()).toEqual(numberCount-1);
     });
   });
 
@@ -31,9 +31,9 @@ describe('Match Game', function () {
   });
 
   it('should set "' + stateSuccessMessage + '" text to h3[name="alert"] after all matches were clicked', function () {
-    var matchesClicked = element.all(by.name('true')).each(function (match) {
-      if(match) {
-        match.click(); 
+    var matchesClicked = element.all(by.name('true')).count().then(function (numOfDuplicates) {
+      for (var i = 0, count = numOfDuplicates/2; i<count; i++) {
+        element(by.name('true')).click();
       }
     });
 

@@ -3,9 +3,9 @@
   <div class="container">
     <div ng-repeat="num in data.numbers track by $index" 
          ng-class="{'success': num.class === 'success', 'failure': num.class === 'failure'}"
-         ng-click="data.checkMatches(num.value, $index)"
+         ng-click="data.checkMatches($index)"
          name="{{num.match}}"
-         class="number {{$index}}">
+         class="number">
     {{num.value}}
     </div>
   </div>
