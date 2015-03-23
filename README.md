@@ -7,7 +7,7 @@ Hello) To launch app please follow next steps (this instruction assumes, that yo
 4) Install Angular dependencies by running: "bower install". It will create /project/static/bower_components directory. You could change directory by editing /.bowerrc
 5) Go to url http://127.0.0.1:5000/#/game and enjoy the game!
 
-To launch tests you should follow next steps: 
+To launch tests you should follow next steps(this instrustion assumes, that you've launched the app): 
 0) You must have Protractor installed, so if it's not run "npm install -g protractor"
 1) To launch Selenium test server "webdriver-manager start"
 2) To set config and run tests "protractor test/e2e/main-conf.js" 
