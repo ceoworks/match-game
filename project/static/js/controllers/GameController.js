@@ -9,10 +9,6 @@ app.controller('GameController', ['$scope', 'Gen',
       $scope.data = Gen.generate();
     };
 
-    $scope.refresh = function () {
-      $scope.init();
-    };
-
     $scope.init();
   }
 ]);

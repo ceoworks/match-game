@@ -46,18 +46,20 @@ app.service('Gen', function() {
 
     return {
       numbers: numbers,
-      status: 'Game is going..',
+      status: '',
       duplicatesNumber: duplicatesNumber,
-      checkMatches: function(index) {
+      checkMatches: function(firstMatchValue, firstMatchIndex) {
         if (this.duplicatesNumber > 0) {
 
-          if (this.numbers[index].match) {
+          if (this.numbers[firstMatchIndex].match) {
             // player finds match
-            this.numbers[index].class = 'success';
+            var secondMatch = this.numbers.splice(firstMatchIndex, 1)[0];
+            var secondMatchIndex = this.numbers.indexOf(secondMatch);
+            this.numbers.splice(secondMatchIndex, 1);
             this.duplicatesNumber--;
           } else {
             // player loses
-            this.numbers[index].class = 'failure';
+            this.numbers[firstMatchIndex].class = 'failure';
             this.duplicatesNumber = -1;
           }
         }
@@ -67,10 +69,10 @@ app.service('Gen', function() {
       checkStatus: function() {
         switch (this.duplicatesNumber) {
           case 0:
-            this.status = 'Victory!';
+            this.status = 'Victory';
             break;
           case -1:
-            this.status = 'Failure = (';
+            this.status = 'Game Over';
             break;
         }
       }

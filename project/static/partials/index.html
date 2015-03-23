@@ -3,14 +3,13 @@
   <div class="container">
     <div ng-repeat="num in data.numbers track by $index" 
          ng-class="{'success': num.class === 'success', 'failure': num.class === 'failure'}"
-         ng-click="data.checkMatches($index)"
+         ng-click="data.checkMatches(num.value, $index)"
          name="{{num.match}}"
-         class="number">
+         class="number {{$index}}">
     {{num.value}}
     </div>
   </div>
   <aside>
     <h3 name="alert">{{data.status}}</h3>
-    <button type="button" name="refresh" ng-click="refresh()">Refresh</button>
   </aside>
 </div>

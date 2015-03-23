@@ -29,21 +29,12 @@ body {
 .number:hover {
   background: rgba(232, 255, 148, 0.5);
 }
-.success {
-  background: green;
-}
 .failure {
   background: red;
 }
 aside {
   width   : 160px;
-  border  : 5px solid black;
   padding : 10px;
-  float   :right;
+  float   : right;
   color   : white;
-}
-aside button {
-  display: inline;
-  color: black;
-  text-align: center;
 }
